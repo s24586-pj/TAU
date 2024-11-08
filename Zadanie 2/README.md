@@ -1,4 +1,4 @@
-# Scenariusze Testowy:
+# Scenariusze Testowe:
 # Wikipedia
 ### 1. Sprawdzenie tytułu strony  
 **Działanie:** Zweryfikowanie, czy tytuł strony zawiera słowo „Wikipedia”.
@@ -118,18 +118,12 @@
 ### 7. Sprawdzenie wyników wyszukiwania  
 **Działanie:** Weryfikacja, czy wyniki wyszukiwania zawierają frazę „Ostatnie życzenie. Wiedźmin. Tom 1”.
 
-### 8. Kliknięcie w pierwszy element wyników wyszukiwania  
-**Działanie:** Kliknięcie w pierwszy element wyników wyszukiwania i przejście do strony szczegółów produktu.
-
 ### 9. Sprawdzenie obecności obrazka  
 **Działanie:** Weryfikacja, czy na stronie pojawia się obrazek produktu.
-
-### 10. Sprawdzenie widoczności opisu produktu  
-**Działanie:** Sprawdzenie, czy opis produktu jest widoczny na stronie.
 
 ### 11. Sprawdzenie liczby linków  
 **Działanie:** Weryfikacja, czy na stronie znajduje się co najmniej jeden link (sprawdzając elementy `a`).
 
-### 12. Sprawdzenie widoczności stopki  
-**Działanie:** Sprawdzenie, czy stopka (footer) jest widoczna na stronie.
+### 12. Sprawdzenie czy jest widoczny link do biznes
+**Działanie:** Sprawdzenie, czy link do podstrony biznes istnieje a nastepnie klikamy w niego
 

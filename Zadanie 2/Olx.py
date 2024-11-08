@@ -57,7 +57,7 @@ def test_olx(driver):
 
 
 
-for browser in [webdriver.Chrome, webdriver.Edge,webdriver.Edge]:
+for browser in [webdriver.Chrome,webdriver.Edge,webdriver.Safari]:
     driver = browser()
     try:
         test_olx(driver)

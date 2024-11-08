@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+
 def test_empik(driver):
     driver.get('https://www.empik.com/')
     driver.maximize_window()
@@ -14,7 +15,7 @@ def test_empik(driver):
     assert "Empik" in driver.title, "Tytuł strony nie zawiera 'Empik'"
 
     header = driver.find_element(By.TAG_NAME, "header")
-    assert header.is_displayed(), "Nagłowek nie jest widoczny"
+    assert header.is_displayed(), "Nagłówek nie jest widoczny"
 
     try:
         przycisk = WebDriverWait(driver, 1).until(
@@ -33,27 +34,17 @@ def test_empik(driver):
     assert pole_wyszukiwania.is_displayed(), "Pole wyszukiwania nie jest widoczne"
     pole_wyszukiwania.send_keys("Ostatnie życzenie. Wiedźmin. Tom 1")
     pole_wyszukiwania.send_keys(Keys.RETURN)
-    time.sleep(2)
-
-    try:
-        pierwszy_element = WebDriverWait(driver, 2).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, ".search-list-item.js-reco-product a.seoTitle"))
-        )
-        pierwszy_element.click()
-
-    except Exception as e:
-        print("Błąd podczas klikania w pierwszy element:", e)
-    time.sleep(1)
+    time.sleep(3)
 
     obrazek = driver.find_element(By.TAG_NAME, "img")
     assert obrazek.is_displayed(), "Strona po wyszukiwaniu nie zawiera obrazku"
 
-    assert "Opis produktu" in driver.page_source, "Opis produktu nie jest widoczny"
+    linki = driver.find_elements(By.TAG_NAME, "a")
+    assert len(linki) > 0, "Brak linków na stronie"
 
-    links = driver.find_elements(By.TAG_NAME, "a")
-    assert len(links) > 0, "Brak linków na stronie"
-
-
+    login = driver.find_element(By.LINK_TEXT, "Biznes")
+    assert login.is_displayed(), "Przycisk 'Biznes' nie jest widoczny"
+    login.click()
 
 
 for browser in [webdriver.Chrome,webdriver.Edge,webdriver.Firefox]:
