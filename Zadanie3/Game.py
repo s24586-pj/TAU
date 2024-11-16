@@ -3,6 +3,10 @@ import time
 
 def generuj_plansze(wiersze, kolumny, liczba_przeszkod):
     """Tworzenie zarysu mapy"""
+
+    if liczba_przeszkod >= wiersze * kolumny - 2:
+        raise ValueError("Liczba przeszkód nie może być większa niż dostępna przestrzeń na planszy.")
+
     plansza = [['#' if i == 0 or i == wiersze - 1 or j == 0 or j == kolumny - 1
                 else ' ' for j in range(kolumny)] for i in range(wiersze)]
 
@@ -36,9 +40,10 @@ def wypisz_plansze(plansza):
     print("\n")
 
 def wykonaj_ruch(plansza, pozycja, ruch):
-    """Funkcja przyjmuje 3 parametry plansze,pozycje graczaa i ruch w dany kierunek
-        sprawdza czy ruch nie powoduje kolizje ze ścianą # albo z przeszkodą X, jeśli oba warunki przechodzą
-        Zmienia A na nowe pole a starą pozycje zamienia na puste pole
+    """Funkcja przyjmuje 3 parametry plansze, pozycje gracza i ruch w dany kierunek.
+    Sprawdza, czy ruch nie powoduje kolizji ze ścianą # albo z przeszkodą X.
+    Jeśli oba warunki przechodzą, zmienia A na nowe pole, a starą pozycję zamienia na puste pole.
+    Jeśli pole jest zajęte, nic nie robi.
     """
     x, y = pozycja
     dx, dy = ruch
@@ -50,8 +55,7 @@ def wykonaj_ruch(plansza, pozycja, ruch):
             plansza[x][y] = ' '
             plansza[nowy_x][nowy_y] = 'A'
             return nowy_x, nowy_y
-        else:
-            print('Nie poprawny ruch trafiłeś na przeszkodę lub granice mapys')
+
     return pozycja
 
 
@@ -62,7 +66,7 @@ if __name__ == "__main__":
      na sam koniec liczy czas"""
     wiersze = 10
     kolumny = 10
-    liczba_przeszkod = 3
+    liczba_przeszkod = 6
     start_gry = time.time()
     plansza, start, stop = generuj_plansze(wiersze, kolumny, liczba_przeszkod)
 
