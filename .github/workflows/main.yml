@@ -28,4 +28,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest Tests.py
+          pytest Zadanie3/Tests.py
