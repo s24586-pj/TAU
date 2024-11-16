@@ -1,6 +1,6 @@
 import unittest
 import time
-from Zadanie3.Game import generuj_plansze, wykonaj_ruch
+from Game import generuj_plansze, wykonaj_ruch
 
 
 class TestGry(unittest.TestCase):
