@@ -1,0 +1,2 @@
+Do zadania czwartego użyłem MagicMock z biblioteki unittest. Każdy z serwisów zamockowanych znajduje się w osobnym pliku.
+Klasa TestOrderService zawiera metodę setUp, która przygotowuje środowisko do testowania.
